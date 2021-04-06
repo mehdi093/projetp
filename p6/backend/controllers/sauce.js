@@ -1,7 +1,5 @@
 const Sauce = require('../models/sauces');
 const fs = require('fs');
-const { db } = require('../models/sauces');
-const { Console } = require('console');
 
 // creation sauce
 exports.creeSauce = (req, res, next) => {
@@ -73,14 +71,12 @@ exports.likeSauce = (req, res, next) => {
     (sauce) => {
       const like = {};
       if (req.body.like === 1) {
-        // like.$addToSet = { usersLiked: req.body.userId };
-        sauce.usersLiked.$addToSet = { usersLiked: req.body.userId };
+        like.$addToSet = { usersLiked: req.body.userId };
         sauce.likes--;
-console.log(like,'1','sauce.like',sauce.usersLiked)
+
       };
       if (req.body.like === 0) {
-     
-        if (sauce.usersLiked.includes(req.body.userId)) {   console.log(like,'0')
+        if (sauce.usersLiked.includes(req.body.userId)) {
           sauce.likes--;
           like.$pull = { usersLiked: req.body.userId };
         }else if (sauce.usersDislikes.includes(req.body.userId)) {
