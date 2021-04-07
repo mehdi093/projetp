@@ -26,7 +26,7 @@ router.put('/:id',multer, sauceCtrl.modifSauce);
 router.delete('/:id', sauceCtrl.suppSauce);
  
 // on veut un like ou dislike
-router.post ('/:id/like',sauceCtrl.likeSauce)
+// router.post ('/:id/like',sauceCtrl.likeSauce)
 
 
 
