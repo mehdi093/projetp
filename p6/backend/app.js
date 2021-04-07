@@ -6,16 +6,14 @@ const path = require('path');
 const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 
-// const Sauce = require('./models/sauces');
 
-
-mongoose.connect('mongodb+srv://mehdi:azerty@cluster0.vh7y0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://mehdi:azerty@cluster0.5pyv8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !')) 
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-
+ 
 const app = express();
 
 app.use((req, res, next) => {
